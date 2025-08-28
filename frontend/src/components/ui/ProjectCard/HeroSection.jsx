@@ -8,6 +8,14 @@ import { motion } from "framer-motion";
 const words = ["Full Stack Developer", "Web Developer", "Blockchain Developer"];
 
 const HeroSection = () => {
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(id);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section>
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -34,12 +42,13 @@ const HeroSection = () => {
             of creativity and code.
           </p>
           <div>
-            <Link
-              to="/#contact"
+            <a
+              href="#contact"
+              onClick={(e) => handleClick(e, "contact")}
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-primary-600 hover:bg-primary-700 text-white transition-colors duration-300"
             >
               Hire Me
-            </Link>
+            </a>
             <Link
               to="/"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-accent-500 to-primary-900 hover:from-accent-600 hover:to-secondary-700 transition-colors duration-300 text-white mt-3"
