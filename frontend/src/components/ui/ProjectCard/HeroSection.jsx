@@ -2,6 +2,7 @@
 import React from "react";
 import { FlipWords } from "./flip-words";
 import { Link } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const words = ["Full Stack Developer", "Web Developer", "Blockchain Developer"];
@@ -28,7 +29,7 @@ const HeroSection = () => {
               repeat={Infinity}
             />
           </h1>
-          <p className="text-secondary text-base sm:text-lg mb-6 lg:text-xl">
+          <p className="text-secondary-50 sm:text-lg mb-6 lg:text-xl">
             Passionate about building seamless digital experiences with a blend
             of creativity and code.
           </p>
@@ -57,7 +58,7 @@ const HeroSection = () => {
         >
           <div className="rounded-full bg-gradient-to-br from-primary-600 to-accent-600 w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
             <img
-              src="/images/ombima.png"
+              src="/images/omb.png"
               alt="Hero Image"
               className="rounded-full absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-full h-full object-cover"
               width={300}
