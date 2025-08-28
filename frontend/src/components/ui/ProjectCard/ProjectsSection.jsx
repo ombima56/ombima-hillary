@@ -2,63 +2,65 @@
 import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCards";
 import ProjectTag from "./ProjectTag.jsx";
+// eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
     id: 1,
-    title: "React Portfolio Website",
-    description: "Project 1 description",
-    image: "/images/projects/p1.png",
+    title: "movie-scout-app",
+    description:
+      "A comprehensive entertainment discovery web app where users can search for movies and TV shows, explore detailed information (cast, plot, ratings), manage personal watchlists, and discover trending content across genres. Built using React and powered by TMDB and OMDB APIs. ",
+    image: "/images/projects/project1.png",
     tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://movie-scout-app.vercel.app/",
   },
   {
     id: 2,
-    title: "Potography Portfolio Website",
-    description: "Project 2 description",
-    image: "/images/projects/p2.png",
+    title: "Zyra",
+    description: "Zyra is a next-generation social-finance platform that lets users seamlessly connect, chat, and transact, all in one place. ",
+    image: "/images/projects/project2.png",
     tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://zyra-mu.vercel.app/",
   },
   {
     id: 3,
-    title: "E-commerce Application",
-    description: "Project 3 description",
-    image: "/images/projects/p3.png",
+    title: "TransparaChain",
+    description: " TransparaChain is a blockchain-based charity platform that eliminates intermediary fees and ensures full transparency. Built on smart contract technology, it accepts USDC donations and gives donors clear visibility into how their contributions are used. ",
+    image: "/images/projects/project3.png",
     tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://transpacharity-zeta.vercel.app/",
   },
-  {
-    id: 4,
-    title: "Food Ordering Application",
-    description: "Project 4 description",
-    image: "/images/projects/p4.png",
-    tag: ["All", "Mobile"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 5,
-    title: "React Firebase Template",
-    description: "Authentication and CRUD operations",
-    image: "/images/projects/p1.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 6,
-    title: "Full-stack Roadmap",
-    description: "Project 5 description",
-    image: "/images/projects/p2.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
+  // {
+  //   id: 4,
+  //   title: "Food Ordering Application",
+  //   description: "Project 4 description",
+  //   image: "/images/projects/p4.png",
+  //   tag: ["All", "Mobile"],
+  //   gitUrl: "/",
+  //   previewUrl: "/",
+  // },
+  // {
+  //   id: 5,
+  //   title: "React Firebase Template",
+  //   description: "Authentication and CRUD operations",
+  //   image: "/images/projects/p1.png",
+  //   tag: ["All", "Web"],
+  //   gitUrl: "/",
+  //   previewUrl: "/",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Full-stack Roadmap",
+  //   description: "Project 5 description",
+  //   image: "/images/projects/p2.png",
+  //   tag: ["All", "Web"],
+  //   gitUrl: "/",
+  //   previewUrl: "/",
+  // },
 ];
 
 const ProjectsSection = () => {
@@ -81,7 +83,7 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-primary mt-4 mb-8 md:mb-12">
+      <h2 className="text-center text-4xl text-primary-500 font-bold text-primary mt-4 mb-8 md:mb-12">
         My Projects
       </h2>
       <div className="flex flex-row justify-center items-center gap-2 py-6">
