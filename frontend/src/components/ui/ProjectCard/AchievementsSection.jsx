@@ -12,7 +12,7 @@ const achievementsList = [
   {
     prefix: "~",
     metric: "Users",
-    value: "100",
+    value: "1000",
   },
   {
     metric: "Awards",
@@ -20,14 +20,14 @@ const achievementsList = [
   },
   {
     metric: "Years",
-    value: "1",
+    value: "3",
   },
 ];
 
 const AchievementsSection = () => {
   return (
     <div className="py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-      <div className="sm:border-primary-600 sm:border rounded-md py-8 px-16 flex flex-col sm:flex-row items-center justify-between bg-primary-900 bg-opacity-50">
+      <div className="sm:border-primary-600 text-primary-50 sm:border rounded-md py-8 px-16 flex flex-col sm:flex-row items-center justify-between bg-primary-900 bg-opacity-50">
         {achievementsList.map((achievement, index) => {
           return (
             <div
