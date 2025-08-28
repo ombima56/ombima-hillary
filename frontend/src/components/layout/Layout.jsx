@@ -12,10 +12,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
-  title: "portfolio",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
