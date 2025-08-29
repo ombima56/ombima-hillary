@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
+const ProjectCard = ({ imgUrl, title, description, previewUrl }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const toggleDescription = () => {
@@ -16,18 +16,24 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
         style={{ background: `url(${imgUrl})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
         <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-primary-900 bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 ">
-          <Link
+          {/* <a
             href={gitUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="h-14 w-14 mr-2 border-2 relative rounded-full border-neutral-300 hover:border-accent-400 group/link"
+            title="Click to view"
           >
             <CodeBracketIcon className="h-10 w-10 text-neutral-300 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white" />
-          </Link>
-          <Link
+          </a> */}
+          <a
             href={previewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="h-14 w-14 border-2 relative rounded-full border-neutral-300 hover:border-accent-400 group/link"
+            title="Open live site"
           >
             <EyeIcon className="h-10 w-10 text-neutral-300 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white" />
-          </Link>
+          </a>
         </div>
       </div>
       <div className="text-white rounded-b-xl mt-3 bg-primary-900 py-6 px-4">
