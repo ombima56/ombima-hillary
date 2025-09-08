@@ -23,7 +23,7 @@ const projectsData = [
     image: "/images/projects/project2.png",
     tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "https://zyra-mu.vercel.app/",
+    previewUrl: "https://zyra-pay.vercel.app/",
   },
   {
     id: 3,
