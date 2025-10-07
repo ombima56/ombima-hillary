@@ -123,37 +123,37 @@ const SkillsSection = () => {
   );
 };
 
-const TAB_DATA = [
-  {
-    title: "Skills",
-    id: "skills",
-    content: <SkillsSection />,
-  },
-  {
-    title: "Education",
-    id: "education",
-    content: (
-      <ul className="list-disc pl-2 text-light-blue-300">
-        <li>Fullstack Academy of Code</li>
-        <li>Adamur</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Certifications",
-    id: "certifications",
-    content: (
-      <ul className="list-disc pl-2 text-light-blue-300">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Analytics Certified</li>
-      </ul>
-    ),
-  },
-];
-
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [, startTransition] = useTransition();
+
+  const TAB_DATA = [
+    {
+      title: "Skills",
+      id: "skills",
+      content: <SkillsSection />,
+    },
+    {
+      title: "Education",
+      id: "education",
+      content: (
+        <ul className="list-disc pl-2 text-light-blue-300">
+          <li>Fullstack Academy of Code</li>
+          <li>Adamur</li>
+        </ul>
+      ),
+    },
+    {
+      title: "Certifications",
+      id: "certifications",
+      content: (
+        <ul className="list-disc pl-2 text-light-blue-300">
+          <li>AWS Cloud Practitioner</li>
+          <li>Google Analytics Certified</li>
+        </ul>
+      ),
+    },
+  ];
 
   const handleTabChange = (id) => {
     startTransition(() => {
