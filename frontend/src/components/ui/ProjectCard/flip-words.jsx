@@ -9,10 +9,11 @@ export const FlipWords = ({
   duration = 2000,
   className
 }) => {
-  const [currentWord, setCurrentWord] = useState(words[0]);
+  const [currentWord, setCurrentWord] = useState(words?.[0] || "");
   const [isAnimating, setIsAnimating] = useState(false);
 
   const startAnimation = useCallback(() => {
+    if (!words || words.length === 0) return;
     const word = words[words.indexOf(currentWord) + 1] || words[0];
     setCurrentWord(word);
     setIsAnimating(true);
@@ -24,6 +25,11 @@ export const FlipWords = ({
         startAnimation();
       }, duration);
   }, [isAnimating, duration, startAnimation]);
+
+  // Guard against empty words or non-string values
+  if (!words || words.length === 0 || typeof currentWord !== 'string') {
+    return null;
+  }
 
   return (
     <AnimatePresence
