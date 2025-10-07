@@ -1,7 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
 import { cn } from "../../../../lib/utils";
 
 export const FlipWords = ({
@@ -35,20 +33,13 @@ export const FlipWords = ({
   const currentWord = validWords[currentIndex];
 
   return (
-    <motion.div
-      key={currentIndex}
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.5,
-        ease: "easeInOut"
-      }}
+    <div
       className={cn(
-        "inline-block text-left text-neutral-900 dark:text-neutral-100",
+        "inline-block text-left text-neutral-900 dark:text-neutral-100 transition-opacity duration-500",
         className
       )}
     >
       {currentWord}
-    </motion.div>
+    </div>
   );
 };
