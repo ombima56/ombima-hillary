@@ -4,14 +4,15 @@ import { motion, useInView } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 // Component for social icons with enhanced hover effect
-const SocialIcon = (props) => (
+// eslint-disable-next-line no-unused-vars
+const SocialIcon = ({ href, Icon }) => (
   <a
-    href={props.href}
+    href={href}
     target="_blank"
     rel="noopener noreferrer"
     className="text-secondary-500 hover:text-white hover:scale-110 transition-transform duration-300"
   >
-    <props.Icon size={30} />
+    <Icon size={30} />
   </a>
 );
 
