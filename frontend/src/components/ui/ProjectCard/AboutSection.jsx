@@ -127,12 +127,12 @@ const TAB_DATA = [
   {
     title: "Skills",
     id: "skills",
-    content: <SkillsSection />,
+    content: () => <SkillsSection />,
   },
   {
     title: "Education",
     id: "education",
-    content: (
+    content: () => (
       <ul className="list-disc pl-2 text-light-blue-300">
         <li>Fullstack Academy of Code</li>
         <li>Adamur</li>
@@ -142,7 +142,7 @@ const TAB_DATA = [
   {
     title: "Certifications",
     id: "certifications",
-    content: (
+    content: () => (
       <ul className="list-disc pl-2 text-light-blue-300">
         <li>AWS Cloud Practitioner</li>
         <li>Google Analytics Certified</li>
@@ -203,7 +203,7 @@ const AboutSection = () => {
             </TabButton>
           </div>
           <div className="mt-2 max-h-80 overflow-y-auto">
-            {TAB_DATA.find((t) => t.id === tab).content}
+            {TAB_DATA.find((t) => t.id === tab).content()}
           </div>
         </div>
       </div>
