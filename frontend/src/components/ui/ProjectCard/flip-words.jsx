@@ -15,8 +15,11 @@ export const FlipWords = ({
   const startAnimation = useCallback(() => {
     if (!words || words.length === 0) return;
     const word = words[words.indexOf(currentWord) + 1] || words[0];
-    setCurrentWord(word);
-    setIsAnimating(true);
+    // Ensure the word is a string before setting it
+    if (typeof word === 'string') {
+      setCurrentWord(word);
+      setIsAnimating(true);
+    }
   }, [currentWord, words]);
 
   useEffect(() => {
