@@ -9,18 +9,23 @@ export const FlipWords = ({
   duration = 2000,
   className
 }) => {
-  const [currentWord, setCurrentWord] = useState(words?.[0] || "");
+  // Validate and filter words array to only include strings
+  const validWords = React.useMemo(() => {
+    if (!words || !Array.isArray(words)) return [];
+    return words.filter(word => typeof word === 'string' && word.length > 0);
+  }, [words]);
+
+  const [currentWord, setCurrentWord] = useState(validWords[0] || "");
   const [isAnimating, setIsAnimating] = useState(false);
 
   const startAnimation = useCallback(() => {
-    if (!words || words.length === 0) return;
-    const word = words[words.indexOf(currentWord) + 1] || words[0];
-    // Ensure the word is a string before setting it
-    if (typeof word === 'string') {
-      setCurrentWord(word);
-      setIsAnimating(true);
-    }
-  }, [currentWord, words]);
+    if (validWords.length === 0) return;
+    const currentIndex = validWords.indexOf(currentWord);
+    const nextIndex = (currentIndex + 1) % validWords.length;
+    const word = validWords[nextIndex];
+    setCurrentWord(word);
+    setIsAnimating(true);
+  }, [currentWord, validWords]);
 
   useEffect(() => {
     if (!isAnimating)
@@ -29,8 +34,8 @@ export const FlipWords = ({
       }, duration);
   }, [isAnimating, duration, startAnimation]);
 
-  // Guard against empty words or non-string values
-  if (!words || words.length === 0 || typeof currentWord !== 'string') {
+  // Guard against empty valid words
+  if (validWords.length === 0 || !currentWord) {
     return null;
   }
 
@@ -66,7 +71,7 @@ export const FlipWords = ({
           className
         )}
         key={currentWord}>
-        {currentWord.split(" ").map((word, wordIndex) => (
+        {typeof currentWord === 'string' && currentWord.split(" ").map((word, wordIndex) => (
           <motion.span
             key={word + wordIndex}
             initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
