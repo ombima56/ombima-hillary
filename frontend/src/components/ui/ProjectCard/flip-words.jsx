@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
-import { cn } from "/lib/utils";
+import { cn } from "../../../../lib/utils";
 
 export const FlipWords = ({
   words,
