@@ -26,7 +26,7 @@ export const FlipWords = ({
   }, [isAnimating, duration, startAnimation]);
 
   return (
-    (<AnimatePresence
+    <AnimatePresence
       onExitComplete={() => {
         setIsAnimating(false);
       }}>
@@ -84,6 +84,6 @@ export const FlipWords = ({
           </motion.span>
         ))}
       </motion.div>
-    </AnimatePresence>)
+    </AnimatePresence>
   );
 };
