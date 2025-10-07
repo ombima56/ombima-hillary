@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "../../../../lib/utils";
 
 export const FlipWords = ({
@@ -33,13 +34,22 @@ export const FlipWords = ({
   const currentWord = validWords[currentIndex];
 
   return (
-    <div
-      className={cn(
-        "inline-block text-left text-neutral-900 dark:text-neutral-100 transition-opacity duration-500",
-        className
-      )}
-    >
-      {currentWord}
+    <div className={cn("inline-block relative", className)}>
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={currentIndex}
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut"
+          }}
+          className="inline-block bg-gradient-to-r from-accent-400 via-secondary-400 to-primary-400 bg-clip-text text-transparent font-bold"
+        >
+          {currentWord}
+        </motion.span>
+      </AnimatePresence>
     </div>
   );
 };

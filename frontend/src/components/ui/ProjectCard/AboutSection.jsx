@@ -1,5 +1,6 @@
 "use client";
 import React, { useTransition, useState } from "react";
+import { motion } from "framer-motion";
 import TabButton from "./TabButton";
 
 const SKILL_CATEGORIES = [
@@ -7,53 +8,53 @@ const SKILL_CATEGORIES = [
     id: "frontend",
     title: "Frontend",
     skills: [
-      "React",
-      "Next.js",
-      "JavaScript (ES6+)",
-      "TypeScript",
-      "HTML5 & CSS3",
-      "Tailwind CSS",
-      "React Query",
+      { name: "React", level: 90 },
+      { name: "Next.js", level: 85 },
+      { name: "JavaScript (ES6+)", level: 90 },
+      { name: "TypeScript", level: 80 },
+      { name: "HTML5 & CSS3", level: 95 },
+      { name: "Tailwind CSS", level: 90 },
+      { name: "React Query", level: 75 },
     ],
   },
   {
     id: "backend",
     title: "Backend",
     skills: [
-      "Node.js",
-      "Express.js",
-      "Go (Golang)",
-      "Gin Framework (Go)",
-      "Rust",
-      "RESTful APIs",
-      "GraphQL",
-      "WebSocket",
+      { name: "Node.js", level: 85 },
+      { name: "Express.js", level: 85 },
+      { name: "Go (Golang)", level: 75 },
+      { name: "Gin Framework (Go)", level: 70 },
+      { name: "Rust", level: 65 },
+      { name: "RESTful APIs", level: 90 },
+      { name: "GraphQL", level: 75 },
+      { name: "WebSocket", level: 80 },
     ],
   },
   {
     id: "blockchain",
     title: "Blockchain",
     skills: [
-      "Solidity",
-      "Soroban (Stellar)",
-      "Web3.js",
-      "Ethers.js",
-      "Hardhat",
-      "Truffle",
-      "Stellar SDK",
-      "Smart Contract Development",
+      { name: "Solidity", level: 80 },
+      { name: "Soroban (Stellar)", level: 75 },
+      { name: "Web3.js", level: 85 },
+      { name: "Ethers.js", level: 85 },
+      { name: "Hardhat", level: 80 },
+      { name: "Truffle", level: 75 },
+      { name: "Stellar SDK", level: 70 },
+      { name: "Smart Contract Development", level: 85 },
     ],
   },
   {
     id: "database",
     title: "Database & Tools",
     skills: [
-      "PostgreSQL",
-      "Docker",
-      "Git & GitHub",
-      "AWS",
-      "Vercel",
-      "Postman",
+      { name: "PostgreSQL", level: 85 },
+      { name: "Docker", level: 80 },
+      { name: "Git & GitHub", level: 90 },
+      { name: "AWS", level: 75 },
+      { name: "Vercel", level: 85 },
+      { name: "Postman", level: 90 },
     ],
   },
 ];
@@ -100,21 +101,39 @@ const SkillsSection = () => {
           <div
             className={`transition-all duration-300 ease-in-out overflow-hidden ${
               activeCategory === category.id
-                ? "max-h-96 opacity-100"
+                ? "max-h-[600px] opacity-100"
                 : "max-h-0 opacity-0"
             }`}
           >
-            <div className="px-4 py-3 bg-dark-blue-900">
-              <ul className="list-disc pl-6 text-light-blue-300 space-y-2">
+            <div className="px-4 py-4 bg-primary-900/40 backdrop-blur-sm">
+              <div className="space-y-4">
                 {category.skills.map((skill, index) => (
-                  <li
+                  <motion.div
                     key={index}
-                    className="hover:text-light-blue-100 transition-colors duration-150"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={activeCategory === category.id ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                    className="space-y-2"
                   >
-                    {skill}
-                  </li>
+                    <div className="flex justify-between items-center">
+                      <span className="text-neutral-200 font-medium text-sm">
+                        {skill.name}
+                      </span>
+                      <span className="text-accent-400 font-semibold text-sm">
+                        {skill.level}%
+                      </span>
+                    </div>
+                    <div className="relative h-2 bg-primary-800/50 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={activeCategory === category.id ? { width: `${skill.level}%` } : { width: 0 }}
+                        transition={{ delay: index * 0.1 + 0.2, duration: 0.8, ease: "easeOut" }}
+                        className="absolute h-full bg-gradient-to-r from-accent-500 via-secondary-500 to-primary-500 rounded-full"
+                      />
+                    </div>
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>

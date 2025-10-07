@@ -13,6 +13,7 @@ const projectsData = [
       "A comprehensive entertainment discovery web app where users can search for movies and TV shows, explore detailed information (cast, plot, ratings), manage personal watchlists, and discover trending content across genres. Built using React and powered by TMDB and OMDB APIs. ",
     image: "/images/projects/project1.png",
     tag: ["All", "Web"],
+    tags: ["React", "TMDB API", "OMDB API", "Tailwind CSS"],
     gitUrl: "/",
     previewUrl: "https://movie-scout-app.vercel.app/",
   },
@@ -22,6 +23,7 @@ const projectsData = [
     description: "Zyra is a next-generation social-finance platform that lets users seamlessly connect, chat, and transact, all in one place. ",
     image: "/images/projects/project2.png",
     tag: ["All", "Web"],
+    tags: ["React", "Node.js", "WebSocket", "Payment Integration"],
     gitUrl: "/",
     previewUrl: "https://zyra-pay.vercel.app/",
   },
@@ -31,6 +33,7 @@ const projectsData = [
     description: " TransparaChain is a blockchain-based charity platform that eliminates intermediary fees and ensures full transparency. Built on smart contract technology, it accepts USDC donations and gives donors clear visibility into how their contributions are used. ",
     image: "/images/projects/project3.png",
     tag: ["All", "Web"],
+    tags: ["Blockchain", "Smart Contracts", "Solidity", "USDC", "Web3"],
     gitUrl: "/",
     previewUrl: "https://transpacharity-zeta.vercel.app/",
   },
@@ -119,6 +122,7 @@ const ProjectsSection = () => {
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
+              tags={project.tags}
             />
           </motion.li>
         ))}
