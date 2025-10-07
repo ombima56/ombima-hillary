@@ -4,7 +4,7 @@ import AboutSection from "../components/ui/ProjectCard/AboutSection";
 import ProjectsSection from "../components/ui/ProjectCard/ProjectsSection";
 import EmailSection from "../components/ui/ProjectCard/EmailSection";
 import Footer from "../components/ui/ProjectCard/Footer";
-import AchievementsSection from "../components/ui/ProjectCard/AchievementsSection";
+// import AchievementsSection from "../components/ui/ProjectCard/AchievementsSection";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
       <div className="container mt-24 mx-auto px-12 py-4">
         <HeroSection />
-        <AchievementsSection />
+        {/* <AchievementsSection /> */}
         <AboutSection />
         <ProjectsSection />
         <EmailSection />
