@@ -32,9 +32,7 @@ const HeroSection = () => {
             <br />
             <FlipWords
               words={words}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
+              duration={3000}
             />
           </h1>
           <p className="text-secondary-50 sm:text-lg mb-6 lg:text-xl">
