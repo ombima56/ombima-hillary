@@ -1,4 +1,5 @@
 "use client";
+// eslint-disable-next-line no-unused-vars
 import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function ScrollProgress() {
