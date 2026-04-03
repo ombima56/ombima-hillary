@@ -36,16 +36,19 @@ const ProjectCard = ({ imgUrl, title, description, previewUrl }) => {
           </a>
         </div>
       </div>
-      <div className="text-white rounded-b-xl mt-3 bg-primary-900 py-6 px-4">
-        <h5 className="text-xl font-semibold mb-2 text-transparent bg-gradient-to-r from-secondary-600 to-accent-600 bg-clip-text">{title}</h5>
-        <p className={`text-tertiary ${!showFullDescription ? 'line-clamp-2' : ''}`}>
+      <div className="text-white rounded-b-xl mt-0 bg-primary-900/60 backdrop-blur-md border-x border-b border-primary-700/50 py-6 px-5 group-hover:bg-primary-900/80 transition-all duration-300">
+        <h5 className="text-xl font-bold mb-3 text-accent-400 group-hover:text-accent-300 transition-colors duration-300 tracking-tight">
+          {title}
+        </h5>
+        <p className={`text-neutral-300 text-sm leading-relaxed ${!showFullDescription ? 'line-clamp-2' : ''} mb-4`}>
           {description}
         </p>
         <button
             onClick={toggleDescription}
-            className="text-accent-400 hover:underline mt-2"
+            className="text-secondary-400 hover:text-secondary-300 font-semibold text-xs tracking-wider uppercase flex items-center gap-1 group/btn"
           >
             {showFullDescription ? "Show Less" : "Read More"}
+            <span className="group-hover/btn:translate-x-1 transition-transform duration-200">→</span>
           </button>
       </div>
     </div>

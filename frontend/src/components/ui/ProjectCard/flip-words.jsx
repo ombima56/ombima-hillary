@@ -35,7 +35,7 @@ export const FlipWords = ({
   return (
     <div
       className={cn(
-        "inline-block text-left text-neutral-900 dark:text-neutral-100 transition-opacity duration-500",
+        "inline-block text-left transition-all duration-500",
         className
       )}
     >
