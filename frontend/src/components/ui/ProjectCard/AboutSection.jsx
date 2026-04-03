@@ -67,54 +67,54 @@ const SkillsSection = () => {
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-4 pt-4">
       {SKILL_CATEGORIES.map((category) => (
         <div
           key={category.id}
-          className="border border-dark-blue-600 rounded-lg overflow-hidden"
+          className="border border-primary-700/50 rounded-xl overflow-hidden bg-primary-800/20 backdrop-blur-sm"
         >
           <button
             onClick={() => toggleCategory(category.id)}
-            className="w-full px-4 py-3 text-left bg-dark-blue-800 hover:bg-dark-blue-700 transition-colors duration-200 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-light-blue-500"
+            className="w-full px-5 py-4 text-left hover:bg-primary-700/30 transition-all duration-300 flex items-center justify-between focus:outline-none"
           >
-            <h4 className="text-lg font-semibold text-white">
+            <h4 className="text-lg font-bold text-white tracking-wide">
               {category.title}
             </h4>
-            <svg
-              className={`w-5 h-5 text-white transform transition-transform duration-200 ${
-                activeCategory === category.id ? "rotate-180" : ""
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+            <div className={`p-1 rounded-full bg-primary-700/50 transition-transform duration-300 ${activeCategory === category.id ? "rotate-180" : ""}`}>
+              <svg
+                className="w-5 h-5 text-accent-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
           </button>
 
           <div
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
+            className={`transition-all duration-500 ease-in-out overflow-hidden ${
               activeCategory === category.id
-                ? "max-h-96 opacity-100"
+                ? "max-h-[500px] opacity-100"
                 : "max-h-0 opacity-0"
             }`}
           >
-            <div className="px-4 py-3 bg-dark-blue-900">
-              <ul className="list-disc pl-6 text-light-blue-300 space-y-2">
+            <div className="px-6 pb-6 pt-2">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, index) => (
-                  <li
+                  <span
                     key={index}
-                    className="hover:text-light-blue-100 transition-colors duration-150"
+                    className="px-3 py-1 bg-primary-900/60 border border-primary-700/50 rounded-lg text-sm text-accent-300 font-medium hover:border-accent-500/50 hover:text-white transition-colors duration-200"
                   >
                     {skill}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -137,9 +137,15 @@ const AboutSection = () => {
       title: "Education",
       id: "education",
       content: (
-        <ul className="list-disc pl-2 text-light-blue-300">
-          <li>Fullstack Academy of Code</li>
-          <li>Adamur</li>
+        <ul className="grid grid-cols-1 gap-4 pt-4">
+          <li className="p-4 bg-primary-800/20 border border-primary-700/50 rounded-xl">
+            <h4 className="text-accent-400 font-bold">Fullstack Academy of Code</h4>
+            <p className="text-neutral-300 text-sm">Advanced Software Engineering Program</p>
+          </li>
+          <li className="p-4 bg-primary-800/20 border border-primary-700/50 rounded-xl">
+            <h4 className="text-accent-400 font-bold">Adamur</h4>
+            <p className="text-neutral-300 text-sm">Technical Specialization</p>
+          </li>
         </ul>
       ),
     },
@@ -147,9 +153,21 @@ const AboutSection = () => {
       title: "Certifications",
       id: "certifications",
       content: (
-        <ul className="list-disc pl-2 text-light-blue-300">
-          <li>AWS Cloud Practitioner</li>
-          <li>Google Analytics Certified</li>
+        <ul className="grid grid-cols-1 gap-4 pt-4">
+          <li className="p-4 bg-primary-800/20 border border-primary-700/50 rounded-xl flex items-center justify-between">
+            <div>
+              <h4 className="text-accent-400 font-bold">AWS Cloud Practitioner</h4>
+              <p className="text-neutral-300 text-sm">Amazon Web Services</p>
+            </div>
+            <div className="h-2 w-2 rounded-full bg-success"></div>
+          </li>
+          <li className="p-4 bg-primary-800/20 border border-primary-700/50 rounded-xl flex items-center justify-between">
+            <div>
+              <h4 className="text-accent-400 font-bold">Google Analytics Certified</h4>
+              <p className="text-neutral-300 text-sm">Google Digital Academy</p>
+            </div>
+            <div className="h-2 w-2 rounded-full bg-success"></div>
+          </li>
         </ul>
       ),
     },
@@ -162,47 +180,43 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <img
-          src="/images/aboutme2.png"
-          alt="about-image"
-          width={500}
-          height={500}
-          className="rounded-xl shadow-lg bg-primary-900 bg-opacity-50 object-contain aspect-square"
-        />
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg text-secondary">
+    <section className="text-white py-12" id="about">
+      <div className="md:grid md:grid-cols-2 gap-12 items-start py-8 px-4 xl:gap-24 sm:py-16 xl:px-8">
+        <div className="relative group max-w-md mx-auto md:mx-0">
+           <div className="absolute -inset-4 bg-primary-500/10 rounded-3xl blur-2xl group-hover:bg-primary-500/20 transition-all duration-500"></div>
+           <img
+            src="/images/aboutme2.png"
+            alt="about-image"
+            width={500}
+            height={600}
+            className="relative rounded-3xl shadow-2xl border border-primary-700/50 object-cover object-top w-full h-[500px] lg:h-[600px]"
+          />
+        </div>
+        <div className="mt-8 md:mt-0 text-left flex flex-col h-full">
+          <h2 className="text-5xl font-extrabold text-white mb-6 tracking-tight">
+            About <span className="text-accent-400">Me</span>
+          </h2>
+          <p className="text-neutral-300 text-lg leading-relaxed mb-8">
             I am a full stack web developer with a passion for creating
             interactive and responsive web applications. I have experience
-            working with modern web technologies including React, Node.js, Go,
-            and Rust, as well as blockchain development with Solidity and
-            Soroban. I am a quick learner and I am always looking to expand my
+            working with modern web technologies including <span className="text-secondary-300 font-medium">React, Node.js, Go,
+            and Rust</span>, as well as blockchain development with <span className="text-accent-400 font-medium">Solidity and
+            Soroban</span>. I am a quick learner and I am always looking to expand my
             knowledge and skill set. I am a team player and I am excited to work
             with others to create amazing applications.
           </p>
-          <div className="flex flex-row justify-start mt-8">
-            <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
-            >
-              Skills
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
-            >
-              Education
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("certifications")}
-              active={tab === "certifications"}
-            >
-              Certifications
-            </TabButton>
+          <div className="flex flex-row justify-start space-x-2 border-b border-primary-700/50 mb-4">
+            {TAB_DATA.map((t) => (
+              <TabButton
+                key={t.id}
+                selectTab={() => handleTabChange(t.id)}
+                active={tab === t.id}
+              >
+                {t.title}
+              </TabButton>
+            ))}
           </div>
-          <div className="mt-2 max-h-80 overflow-y-auto">
+          <div className="mt-2 min-h-[300px]">
             {TAB_DATA.find((t) => t.id === tab).content}
           </div>
         </div>
