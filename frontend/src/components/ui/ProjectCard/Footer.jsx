@@ -2,43 +2,42 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
-  // Define social media links
-  // const socialLinks = [
-  //   {
-  //     id: 1,
-  //     name: "GitHub",
-  //     href: "https://github.com/ombima56", // Replace with your GitHub URL
-  //     icon: FaGithub,
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "LinkedIn",
-  //     href: "https://linkedin.com/in/hillary-ombima", // Replace with your LinkedIn URL
-  //     icon: FaLinkedin,
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Twitter",
-  //     href: "https://twitter.com/your-username", // Replace with your Twitter URL
-  //     icon: FaTwitter,
-  //   },
-  // ];
+  const socialLinks = [
+    {
+      id: 1,
+      name: "GitHub",
+      href: "https://github.com/ombima56",
+      icon: FaGithub,
+    },
+    {
+      id: 2,
+      name: "LinkedIn",
+      href: "https://linkedin.com/in/hillary-ombima",
+      icon: FaLinkedin,
+    },
+  ];
 
   return (
-    <footer className="footer border-t border-t-tertiary-700 bg-primary-900 text-white">
-      <div className="container mx-auto p-8 flex flex-col md:flex-row items-center justify-between">
+    <footer className="w-full border-t border-primary-700/50 bg-primary-900/40 backdrop-blur-sm text-white mt-12">
+      <div className="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left Section: Branding */}
-        <div className="flex items-center mb-4 md:mb-0">
-          <span className="text-4xl font-bold text-accent-500 mr-2">HO</span>
-          <p className="text-sm text-secondary-500">
-            A portfolio by Hillary Ombima.
+        <div className="flex flex-col items-center md:items-start space-y-4">
+          <div className="flex items-center space-x-2">
+            <div className="bg-accent-500 text-primary-900 w-8 h-8 flex items-center justify-center rounded-lg font-black text-sm">
+              H
+            </div>
+            <span className="text-xl text-white font-bold tracking-tighter uppercase">
+              Ombima
+            </span>
+          </div>
+          <p className="text-neutral-400 text-sm max-w-xs text-center md:text-left leading-relaxed">
+            Building the future of the web with precision, creativity, and modern technology.
           </p>
         </div>
 
-        {/* Center Section: Social Icons
-        <div className="flex flex-col items-center mb-4 md:mb-0">
-          <p className="text-sm text-secondary-500 mb-2">Let&apos;s Connect!</p>
-          <div className="flex gap-4">
+        {/* Center Section: Socials */}
+        <div className="flex flex-col items-center space-y-4">
+          <div className="flex gap-6">
             {socialLinks.map((link) => (
               <a
                 key={link.id}
@@ -46,18 +45,21 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${link.name} Profile`}
-                className="text-secondary-400 hover:text-white transition-colors duration-300 transform hover:scale-110"
+                className="text-neutral-400 hover:text-accent-400 transition-all duration-300 transform hover:-translate-y-1"
               >
-                <link.icon size={24} />
+                <link.icon size={28} />
               </a>
             ))}
           </div>
-        </div> */}
+        </div>
 
         {/* Right Section: Copyright */}
-        <div className="text-center md:text-right">
-          <p className="text-sm text-secondary-500">
-            © {new Date().getFullYear()} HO. All Rights Reserved.
+        <div className="flex flex-col items-center md:items-end space-y-2">
+           <p className="text-sm font-medium text-neutral-300">
+            © {new Date().getFullYear()} Hillary Ombima
+          </p>
+          <p className="text-xs text-neutral-500">
+            All Rights Reserved.
           </p>
         </div>
       </div>
